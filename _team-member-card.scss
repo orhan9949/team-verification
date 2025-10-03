@@ -1,0 +1,106 @@
+// ==========================================================================
+// Team Memeber Card
+// ==========================================================================
+
+.team-member-card {
+  position: relative;
+  padding-left: 72px;
+}
+
+.team-member-card__media {
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: var(--content-bg-darken);
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    will-change: transform;
+    transition: transform 10s linear;
+  }
+
+  &::before {
+    background-image: url('../images/about-team-memeber-line-first.svg');
+  }
+
+  &::after {
+    background-image: url('../images/about-team-memeber-line-second.svg');
+  }
+
+  .team-member-card:hover &::before {
+    transform: rotate(360deg);
+  }
+
+  .team-member-card:hover &::after {
+    transform: rotate(-360deg);
+  }
+}
+
+.team-member-card__photo,
+picture.team-member-card__photo img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 20;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.team-member-card__name,
+.team-member-card__position {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.team-member-card__name {
+  color: var(--title-color);
+  font-weight: 600;
+  transition: color 0.3s ease-in-out;
+
+  .team-member-card:hover & {
+    color: var(--primary-color);
+  }
+}
+
+.team-member-card__position {
+  color: var(--text-color-alt);
+}
+
+.team-member-card__link {
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 20;
+  width: 100%;
+  height: 100%;
+  text-indent: -990px;
+}
+
+.team-member-card__social {
+  display: flex;
+  gap: 8px;
+  position: relative;
+  z-index: 21;
+  margin-top: 4px;
+
+  .community-link {
+    --community-link-icon-size: 16px;
+  }
+}
